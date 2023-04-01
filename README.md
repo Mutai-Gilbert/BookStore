@@ -55,4 +55,4 @@ Give a ⭐️ if you like this project!
 ## Acknowledgments 
 MICROVERSE and My Team.
 
-This project is [MIT](./LICENSE) licensed.
+This project is [MIT](./LICENSE.md) licensed.
