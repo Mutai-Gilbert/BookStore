@@ -48,7 +48,7 @@ coming soon
 1- clone Repo.
 
 ```sh
-    git@github.com:zeff96/Bookstore.git
+    [git@github.com:Mutai-Gilbert/BookStore.git]
 ```
 
 ### Prerequisites:
@@ -112,4 +112,4 @@ Acknowledgement microverse student for providing the platform.
 
 ## 📝 License
 
-This project is [MIT](./MIT.md) licensed.
+This project is [MIT](./LICENSE.md) licensed.
