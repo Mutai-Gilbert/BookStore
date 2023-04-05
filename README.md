@@ -1,157 +1,88 @@
 # 📗 Table of Contents
 
 - [📗 Table of Contents](#-table-of-contents)
-- [📖 \[your\_project\_name\] ](#-your_project_name-)
-  - [🛠 Built With ](#-built-with-)
-    - [Tech Stack ](#tech-stack-)
-    - [Key Features ](#key-features-)
-  - [🚀 Live Demo ](#-live-demo-)
-  - [💻 Getting Started ](#-getting-started-)
-    - [Prerequisites](#prerequisites)
+- [BOOKSTORE](#bookstore)
+  - [Built With](#built-with)
+  - [Key Features:](#key-features)
+  - [Live Demo:](#live-demo)
+  - [Getting Started](#getting-started)
     - [Setup](#setup)
+    - [Prerequisites:](#prerequisites)
     - [Install](#install)
     - [Usage](#usage)
     - [Run tests](#run-tests)
-    - [Deployment](#deployment)
-  - [👥 Authors ](#-authors-)
+  - [Deployment](#deployment)
   - [Author](#author)
-  - [🔭 Future Features ](#-future-features-)
-  - [🤝 Contributing ](#-contributing-)
-  - [⭐️ Show your support ](#️-show-your-support-)
-  - [🙏 Acknowledgments ](#-acknowledgments-)
-  - [❓ FAQ (OPTIONAL) ](#-faq-optional-)
-  - [📝 License ](#-license-)
+  - [Future Features:](#future-features)
+  - [🤝 Contributing](#-contributing)
+  - [Show your support](#show-your-support)
+  - [Acknowledgements](#acknowledgements)
+  - [📝 License](#-license)
 
-<!-- PROJECT DESCRIPTION -->
+# BOOKSTORE
 
-# 📖 [your_project_name] <a name="about-project"></a>
+This is a website that allow users to add and remove books, it also provides books management where users are able to track the progress of the reading of the book and perform status update based on their progress.
+This website also always grouping of books according to their categories
 
-> Describe your project in 1 or 2 sentences.
+## Built With
 
-**[your_project__name]** is a...
+- HTML(HTML-5).
+- CSS(Flexbox - grid).
+- javaScript (Vanilla JS).
+- Github.
+- React.
+- Linters.
 
-## 🛠 Built With <a name="built-with"></a>
+## Key Features:
 
-### Tech Stack <a name="tech-stack"></a>
+- User can add items and can remove it from the list.
 
-> Describe the tech stack and include only the relevant sections that apply to your project.
+## Live Demo:
 
-<details>
-  <summary>Client</summary>
-  <ul>
-    <li><a href="https://reactjs.org/">React.js</a></li>
-  </ul>
-</details>
+coming soon
 
-
-### Key Features <a name="key-features"></a>
-
-> Describe between 1-3 key features of the application.
-
-- **[Setup a Redux store]**
-- **[Create a slice to save your state and reducers]**
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- LIVE DEMO -->
-
-## 🚀 Live Demo <a name="live-demo"></a>
-
-> Add a link to your deployed project.
-
-- [Live Demo Link](NOT AVAILABLE YET)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- GETTING STARTED -->
-
-## 💻 Getting Started <a name="getting-started"></a>
-
-> Describe how a new developer could make use of your project.
-
-To get a local copy up and running, follow these steps.
-
-### Prerequisites
-
-In order to run this project you need:
-
-<!--
-Example command:
-
-```sh
- gem install rails
-```
- -->
+## Getting Started
 
 ### Setup
 
-Clone this repository to your desired folder:
-
-<!--
-Example commands:
+1- clone Repo.
 
 ```sh
-  cd my-folder
-  git clone git@github.com:myaccount/my-project.git
+    git@github.com:zeff96/Bookstore.git
 ```
---->
+
+### Prerequisites:
+
+**you can run any one of these commands to install npm on your machine:**
+
+- npm i
+- npm install
+- sudo apt install npm
+
+  **to install globally, just add a -g or --global after the install or i**
+
+- npm i -g
+- sudo apt install -g npm
 
 ### Install
 
-Install this project with:
-
-<!--
-Example command:
-
-```sh
-  cd my-project
-  gem install
-```
---->
+2- Install npm (node pakage manager)
 
 ### Usage
 
-To run the project, execute the following command:
-
-<!--
-Example command:
-
 ```sh
-  rails server
+  use git bash to open in Vs code;
 ```
---->
 
 ### Run tests
 
-To run tests, run the following command:
+Use linters for REACT/REDUX to perform test on this project
 
-<!--
-Example command:
-
-```sh
-  bin/rails test test/models/article_test.rb
-```
---->
-
-### Deployment
-
-You can deploy this project using:
-
-<!--
-Example:
+## Deployment
 
 ```sh
-
+  - github pages
 ```
- -->
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- AUTHORS -->
-
-## 👥 Authors <a name="authors"></a>
-
-> Mention all of the collaborators of this project.
 
 ## Author
 👤 **Gilbert Mutai**
@@ -160,68 +91,25 @@ Example:
 - Twitter: [@twitterhandle](https://twitter.com/@nerdmutai)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/mutai-gilbert-2a5a42137/)
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+## Future Features:
 
-<!-- FUTURE FEATURES -->
+- Add navigations
+- Make it responsive
 
-## 🔭 Future Features <a name="future-features"></a>
-
-> Describe 1 - 3 features you will add to the project.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- CONTRIBUTING -->
-
-## 🤝 Contributing <a name="contributing"></a>
+## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](../../issues/).
+Feel free to check the [issues page](https://github.com/zeff96/Bookstore/issues).
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+## Show your support
 
-<!-- SUPPORT -->
+Give a ⭐️ if you like this project!
 
-## ⭐️ Show your support <a name="support"></a>
+## Acknowledgements
 
-> Write a message to encourage readers to support your project
+Acknowledgement microverse student for providing the platform.
 
-If you like this project...
+## 📝 License
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- ACKNOWLEDGEMENTS -->
-
-## 🙏 Acknowledgments <a name="acknowledgements"></a>
-
-> Give credit to everyone who inspired your codebase.
-
-I would like to thank...
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- FAQ (optional) -->
-
-## ❓ FAQ (OPTIONAL) <a name="faq"></a>
-
-> Add at least 2 questions new developers would ask when they decide to use your project.
-
-- **[Question_1]**
-
-  - [Answer_1]
-
-- **[Question_2]**
-
-  - [Answer_2]
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- LICENSE -->
-
-## 📝 License <a name="license"></a>
-
-This project is [MIT](./LICENSE.md) licensed.
-
-_NOTE: we recommend using the [MIT license](https://choosealicense.com/licenses/mit/) - you can set it up quickly by [using templates available on GitHub](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository). You can also use [any other license](https://choosealicense.com/licenses/) if you wish._
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+This project is [MIT](./MIT.md) licensed.
