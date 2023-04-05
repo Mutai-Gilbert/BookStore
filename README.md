@@ -1,42 +1,88 @@
-# Project Name 
-React: Book-Store-App
-# Description of project.
-In this project, I used a react web application to create a single-page app for a Bookstore
+# 📗 Table of Contents
 
-## Project web demo link.
-Run npm start in an intergrated terminal in order to start a local live server.
-Or try the Live Demo (if available)
+- [📗 Table of Contents](#-table-of-contents)
+- [BOOKSTORE](#bookstore)
+  - [Built With](#built-with)
+  - [Key Features:](#key-features)
+  - [Live Demo:](#live-demo)
+  - [Getting Started](#getting-started)
+    - [Setup](#setup)
+    - [Prerequisites:](#prerequisites)
+    - [Install](#install)
+    - [Usage](#usage)
+    - [Run tests](#run-tests)
+  - [Deployment](#deployment)
+  - [Author](#author)
+  - [Future Features:](#future-features)
+  - [🤝 Contributing](#-contributing)
+  - [Show your support](#show-your-support)
+  - [Acknowledgements](#acknowledgements)
+  - [📝 License](#-license)
 
-## Built With 
-- Html & CSS
-- JavaScript
-- React
-- Visual studio
-- Webpack
+# BOOKSTORE
 
-# Getting starting 
-To get a local copy up and running follow these simple example steps:
+This is a website that allow users to add and remove books, it also provides books management where users are able to track the progress of the reading of the book and perform status update based on their progress.
+This website also always grouping of books according to their categories
 
-## Prerequisites
- Vscode. 
- must have git installed.
+## Built With
+
+- HTML(HTML-5).
+- CSS(Flexbox - grid).
+- javaScript (Vanilla JS).
+- Github.
+- React.
+- Linters.
+
+## Key Features:
+
+- User can add items and can remove it from the list.
+
+## Live Demo:
+
+coming soon
+
+## Getting Started
 
 ### Setup
-- Click on the green button on the top right corner with the text code
-- Click on SSH
-- Copy the text that appears below 
-- Type "git clone" in your terminal and past the copied text next to "git clone" and press ente
 
-## 🛠 Installation & Set Up
-- Click on the green button on the top right corner with the text code
-- Click on "Download ZIP"
-- Extract the downloaded file locally
+1- clone Repo.
 
-## 🚀 Building and Running for Production
+```sh
+    [git@github.com:Mutai-Gilbert/BookStore.git]
+```
 
-1. Generate a full static production build
+### Prerequisites:
 
-   npm run build
+**you can run any one of these commands to install npm on your machine:**
+
+- npm i
+- npm install
+- sudo apt install npm
+
+  **to install globally, just add a -g or --global after the install or i**
+
+- npm i -g
+- sudo apt install -g npm
+
+### Install
+
+2- Install npm (node pakage manager)
+
+### Usage
+
+```sh
+  use git bash to open in Vs code;
+```
+
+### Run tests
+
+Use linters for REACT/REDUX to perform test on this project
+
+## Deployment
+
+```sh
+  - github pages
+```
 
 ## Author
 👤 **Gilbert Mutai**
@@ -44,15 +90,26 @@ To get a local copy up and running follow these simple example steps:
 - GitHub: [@githubhandle](https://github.com/Mutai-Gilbert)
 - Twitter: [@twitterhandle](https://twitter.com/@nerdmutai)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/mutai-gilbert-2a5a42137/)
-## Authors
 
-# 🤝 Contributing
- Contributions, issues, and feature requests are welcome! Feel free to check the [issues page]Fork the Project Create your Feature Branch (git checkout -b 'branchname') Commit your Changes (git commit -m 'Add some branchname') Push to the Branch (git push origin branchname) Open a Pull Request Feel free to check the
+## Future Features:
 
-## Show your support 
+- Add navigations
+- Make it responsive
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the [issues page](https://github.com/zeff96/Bookstore/issues).
+
+## Show your support
+
 Give a ⭐️ if you like this project!
 
-## Acknowledgments 
-MICROVERSE and My Team.
+## Acknowledgements
+
+Acknowledgement microverse student for providing the platform.
+
+## 📝 License
 
 This project is [MIT](./LICENSE.md) licensed.
