@@ -1,38 +1,35 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { removeBook } from '../redux/books/booksSlice';
 import '../App.css';
-import Booklist from './booklist';
+import AddNewBook from './addNewBook';
 
 const Books = () => {
-  const [books, setBooks] = useState([
-    { title: 'Beyond Order', author: 'Jordan Peterson' },
-    { title: 'Maps of Meaning', author: 'Jordan Peterson' },
-    { title: '12 Rules for Life', author: 'Jordan Peterson' },
-    { title: 'Sapiens', author: 'Yuval Harrari' },
-  ]);
-
-  const handleRemoveBook = (index) => {
-    const newBooks = [...books];
-    newBooks.splice(index, 1);
-    setBooks(newBooks);
-  };
-
-  const handleAddBook = (event) => {
-    event.preventDefault();
-    const title = event.target.elements.title.value;
-    const author = event.target.elements.author.value;
-    const newBooks = [...books, { title, author }];
-    setBooks(newBooks);
-    event.target.reset();
-  };
+  const theBooks = useSelector((state) => state.books);
+  const dispatch = useDispatch();
 
   return (
     <div className="books">
-      <Booklist books={books} onRemoveBook={handleRemoveBook} />
-      <form onSubmit={handleAddBook}>
-        <input type="text" placeholder="Book title..." name="title" />
-        <input type="text" placeholder="Book author..." name="author" />
-        <input type="submit" value="Add" />
-      </form>
+      <ul>
+        {
+          theBooks.map((book) => (
+            <li key={book.id}>
+              <div>
+                <span className="title">{book.title}</span>
+                <span className="author">{book.author}</span>
+              </div>
+              <button
+                type="submit"
+                className="removeBook"
+                onClick={() => dispatch(removeBook(book.item_id))}
+              >
+                Remove
+              </button>
+            </li>
+          ))
+        }
+      </ul>
+      <AddNewBook />
     </div>
   );
 };
