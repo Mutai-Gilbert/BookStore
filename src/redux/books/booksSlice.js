@@ -4,7 +4,6 @@ import axios from 'axios';
 const initialState = {
   books: [],
   isLoading: false,
-  error: '',
 };
 
 export const getBooks = createAsyncThunk('books/getBooks', async (thunkAPI) => {
@@ -37,7 +36,6 @@ export const removeBook = createAsyncThunk('books/removeBook', async (id, thunkA
 export const booksSlice = createSlice({
   name: 'books',
   initialState,
-  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(getBooks.pending, (state) => ({
@@ -49,14 +47,14 @@ export const booksSlice = createSlice({
         isLoading: false,
         books: action.payload,
       }))
-      .addCase(getBooks.rejected, (state, action) => ({
+      .addCase(getBooks.rejected, (state) => ({
         ...state,
         isLoading: false,
-        error: action.error.message,
       }))
       .addCase(addBook.fulfilled, (state, action) => ({
         ...state,
-        books: [...state.books, action.payload],
+        books: action.payload,
+        isLoading: false,
       }))
       .addCase(removeBook.fulfilled, (state, action) => {
         const newBookList = state.books.filter((book) => book.item_id !== action.payload);

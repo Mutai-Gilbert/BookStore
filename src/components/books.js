@@ -28,7 +28,7 @@ const Books = () => {
         const { author, title, category } = mybook;
 
         return (
-          <li key={id}>
+          <li key={id} id={id}>
             <div>
               <span className="title  ">{title}</span>
               <span className="author">{author}</span>
@@ -50,8 +50,8 @@ const Books = () => {
 
   return (
     <div className="books">
-      <AddNewBook />
       <ul>{displayBooks()}</ul>
+      <AddNewBook />
     </div>
   );
 };
