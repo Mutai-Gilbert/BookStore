@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
-import { addBook } from '../redux/books/booksSlice';
+import { addBook, getBooks } from '../redux/books/booksSlice';
 
 const AddNewBook = () => {
   const dispatch = useDispatch();
 
-  const [newBook, setNewBook] = useState({ title: '', author: '' });
+  const [newBook, setNewBook] = useState({ title: '', author: '', category: '' });
 
   const handleBookTitle = (e) => {
     setNewBook({ ...newBook, title: e.target.value });
@@ -16,13 +16,9 @@ const AddNewBook = () => {
   };
   const handleBookSubmit = (e) => {
     e.preventDefault();
-    const nextBook = {
-      item_id: uuidv4(),
-      title: newBook.title,
-      author: newBook.author,
-    };
+    const nextBook = { item_id: uuidv4(), ...newBook };
     dispatch(addBook(nextBook));
-    document.querySelector('form').reset();
+    setNewBook({ title: '', author: '', category: '' });
   };
 
   return (
@@ -44,7 +40,13 @@ const AddNewBook = () => {
           onChange={handleBookAuthor}
           required
         />
-        <input type="submit" onClick={handleBookSubmit} />
+        <input
+          type="submit"
+          onClick={() => {
+            handleBookSubmit();
+            dispatch(getBooks());
+          }}
+        />
       </form>
     </>
   );
