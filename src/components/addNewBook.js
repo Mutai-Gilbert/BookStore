@@ -16,8 +16,13 @@ const AddNewBook = () => {
   };
   const handleBookSubmit = (e) => {
     e.preventDefault();
-    const nextBook = { item_id: uuidv4(), ...newBook };
-    dispatch(addBook(nextBook));
+    const bookInfo = {
+      item_id: uuidv4(),
+      title: newBook.title,
+      author: newBook.author,
+      category: newBook.category,
+    };
+    dispatch(addBook(bookInfo));
     setNewBook({ title: '', author: '', category: '' });
   };
 

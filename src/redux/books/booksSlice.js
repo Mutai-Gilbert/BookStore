@@ -16,9 +16,9 @@ export const getBooks = createAsyncThunk('books/getBooks', async (thunkAPI) => {
   }
 });
 
-export const addBook = createAsyncThunk('books/addBook', async (nextBook, thunkAPI) => {
+export const addBook = createAsyncThunk('books/addBook', async (bookInfo, thunkAPI) => {
   try {
-    const response = await axios.post('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/CmHBlH9icvMuSf2R7xNo/books', nextBook);
+    const response = await axios.post('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/CmHBlH9icvMuSf2R7xNo/books', bookInfo);
     return response.data;
   } catch (error) {
     return thunkAPI.rejectWithValue('Failed, Try again!');
