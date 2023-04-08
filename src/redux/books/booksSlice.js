@@ -68,10 +68,14 @@ const booksSlice = createSlice({
         ...state,
         isLoading: false,
       }))
-      .addCase(removeBook.fulfilled, (state, action) => ({
-        ...state,
-        books: state.books.filter((book) => book.id !== action.payload),
-      }))
+      .addCase(removeBook.fulfilled, (state, action) => {
+        const newBooksList = state.books.filter((book) => book.item_id !== action.payload.id);
+        return {
+          ...state,
+          books: newBooksList,
+          isLoading: true,
+        };
+      })
       .addCase(removeBook.rejected, (state) => ({
         ...state,
         isLoading: false,

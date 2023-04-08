@@ -9,18 +9,21 @@ const AddNewBook = () => {
   const [newBook, setNewBook] = useState({ title: '', author: '', category: '' });
 
   const handleBookTitle = (e) => {
-    if (e.target.value.length) {
+    if (e.target.value) {
       setNewBook({ ...newBook, title: e.target.value });
     }
   };
   const handleBookAuthor = (e) => {
-    if (e.target.value.length) {
+    if (e.target.value) {
       setNewBook({ ...newBook, author: e.target.value });
     }
   };
   const handleBookSubmit = () => {
     const bookInfo = {
-      item_id: uuidv4(), ...newBook,
+      item_id: uuidv4(),
+      title: newBook.title,
+      author: newBook.author,
+      category: 'not defined',
     };
     dispatch(addBook(bookInfo));
     document.querySelector('form').reset();

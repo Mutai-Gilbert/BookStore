@@ -1,3 +1,61 @@
+:root {
+  --azure: #0290ff;
+  --cool-blue: #4386bf;
+  --pale-grey: #f5f6fa;
+  --white: #fff;
+  --black-5: rgba(0, 0, 0, 0.05);
+  --black-two: #121212;
+  --font-mont: montserrat, 'san-serif';
+  --font-roboto: robotoslab, 'san-serif';
+}
+
+body {
+  background-color: var(--pale-grey);
+}
+
+.container {
+  margin: 5em 4em;
+  background-color: #fafafa;
+  border-radius: 4px;
+  box-shadow: 0 0 60px 0 var(--black-5);
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  padding: 0 5em;
+  background-color: var(--white);
+  margin: 0;
+  height: 4.7rem;
+  position: relative;
+}
+
+.header {
+  color: var(--azure);
+  font-size: 1.875rem;
+  font-weight: bold;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+}
+
+.link {
+  text-decoration: none;
+  padding: 0 1em;
+  color: rgba(0, 0, 0, 0.548);
+  font-family: var(--font-mont);
+  font-size: 0.85rem;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
+.link:active,
+.link:focus,
+.link:hover {
+  color: var(--black-two);
+}
 .books {
   max-width: 800px;
   margin: 0 auto;
