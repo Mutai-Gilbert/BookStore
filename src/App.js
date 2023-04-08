@@ -2,7 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/navbar';
 import Books from './components/books';
-import Categories from './components/Categories';
+import Categories from './components/categories';
 
 const App = () => (
   <>
