@@ -23,7 +23,7 @@ const AddNewBook = () => {
       item_id: uuidv4(),
       title: newBook.title,
       author: newBook.author,
-      category: 'not defined',
+      category: 'Inspirational',
     };
     dispatch(addBook(bookInfo));
     document.querySelector('form').reset();
@@ -50,6 +50,7 @@ const AddNewBook = () => {
         />
         <input
           type="submit"
+          value="ADD BOOK"
           onClick={(e) => {
             e.preventDefault();
             handleBookSubmit();

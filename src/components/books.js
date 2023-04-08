@@ -95,11 +95,14 @@ const Books = () => {
   };
 
   return (
-    <div className="books">
+    <div className="booksContainer">
       <ul>
         {displayBooks()}
       </ul>
-      <AddNewBook />
+      <div className="newBook">
+        <h3 className="addNewBook">ADD NEW BOOK</h3>
+        <AddNewBook />
+      </div>
     </div>
   );
 };
