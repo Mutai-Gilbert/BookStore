@@ -18,39 +18,49 @@ const Books = () => {
   }, [dispatch]);
 
   if (isLoading) {
-    return <h1>Loading...</h1>;
+    return (
+      <h1>Loading...</h1>
+    );
   }
 
   const displayBooks = () => {
     if (Object.keys(theBooks).length > 0) {
-      return Object.keys(theBooks).map((id) => {
-        const [mybook] = theBooks[id];
-        const { author, title, category } = mybook;
+      return (
+        <ul className="bookList">
+          {Object.keys(theBooks).map((id) => {
+            const [mybook] = theBooks[id];
+            const { author, title, category } = mybook;
 
-        return (
-          <li key={id} id={id}>
-            <div>
-              <span className="title  ">{title}</span>
-              <span className="author">{author}</span>
-              <span className="category">{category}</span>
-            </div>
-            <button
-              type="submit"
-              className="removeBook"
-              onClick={() => handleRemoveBook(id)}
-            >
-              Remove
-            </button>
-          </li>
-        );
-      });
+            return (
+              <li key={id} id={id} className="bookItem">
+                <div className="bookDetails">
+                  <span className="author">{author}</span>
+                  <span className="title">{title}</span>
+                  <span className="category">{category}</span>
+                </div>
+                <button
+                  type="submit"
+                  className="removeBookButton"
+                  onClick={() => {
+                    handleRemoveBook(id);
+                  }}
+                >
+                  Remove
+                </button>
+              </li>
+            );
+          })}
+        </ul>
+      );
     }
-    return <h1>No books yet</h1>;
+    return <h1 className="noBooksMessage">No books yet</h1>;
   };
 
   return (
     <div className="books">
-      <ul>{displayBooks()}</ul>
+      <ul>
+        {displayBooks()}
+      </ul>
       <AddNewBook />
     </div>
   );

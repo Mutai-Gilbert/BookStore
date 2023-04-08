@@ -46,3 +46,42 @@ input[type="submit"] {
 input[type="submit"]:hover {
   background-color: #2c3e50;
 }
+
+.bookList {
+  list-style: none;
+  padding: 0;
+}
+
+.bookItem {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.bookDetails {
+  display: flex;
+  flex-direction: column;
+}
+
+.author {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.removeBookButton {
+  background-color: #ff4c4c;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.noBooksMessage {
+  color: #aaa;
+  text-align: center;
+}

@@ -9,21 +9,21 @@ const AddNewBook = () => {
   const [newBook, setNewBook] = useState({ title: '', author: '', category: '' });
 
   const handleBookTitle = (e) => {
-    setNewBook({ ...newBook, title: e.target.value });
+    if (e.target.value.length) {
+      setNewBook({ ...newBook, title: e.target.value });
+    }
   };
   const handleBookAuthor = (e) => {
-    setNewBook({ ...newBook, author: e.target.value });
+    if (e.target.value.length) {
+      setNewBook({ ...newBook, author: e.target.value });
+    }
   };
-  const handleBookSubmit = (e) => {
-    e.preventDefault();
+  const handleBookSubmit = () => {
     const bookInfo = {
-      item_id: uuidv4(),
-      title: newBook.title,
-      author: newBook.author,
-      category: newBook.category,
+      item_id: uuidv4(), ...newBook,
     };
     dispatch(addBook(bookInfo));
-    setNewBook({ title: '', author: '', category: '' });
+    document.querySelector('form').reset();
   };
 
   return (
@@ -47,7 +47,8 @@ const AddNewBook = () => {
         />
         <input
           type="submit"
-          onClick={() => {
+          onClick={(e) => {
+            e.preventDefault();
             handleBookSubmit();
             dispatch(getBooks());
           }}

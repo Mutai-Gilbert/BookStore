@@ -6,7 +6,7 @@ const initialState = {
   isLoading: false,
 };
 
-export const getBooks = createAsyncThunk('books/getBooks', async (thunkAPI) => {
+const getBooks = createAsyncThunk('books/getBooks', async (thunkAPI) => {
   try {
     const response = await axios.get('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/CmHBlH9icvMuSf2R7xNo/books');
     return response.data;
@@ -15,7 +15,7 @@ export const getBooks = createAsyncThunk('books/getBooks', async (thunkAPI) => {
   }
 });
 
-export const addBook = createAsyncThunk('books/addBook', async (bookInfo, thunkAPI) => {
+const addBook = createAsyncThunk('books/addBook', async (bookInfo, thunkAPI) => {
   try {
     const response = await axios.post('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/CmHBlH9icvMuSf2R7xNo/books', bookInfo);
     return response.data;
@@ -24,16 +24,16 @@ export const addBook = createAsyncThunk('books/addBook', async (bookInfo, thunkA
   }
 });
 
-export const removeBook = createAsyncThunk('books/removeBook', async (id, thunkAPI) => {
+const removeBook = createAsyncThunk('books/removeBook', async (bookId, thunkAPI) => {
   try {
-    const response = await axios.delete(`https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/CmHBlH9icvMuSf2R7xNo/books/${id}`);
+    const response = await axios.delete(`https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/CmHBlH9icvMuSf2R7xNo/books/${bookId}`);
     return response.data;
   } catch (error) {
     return thunkAPI.rejectWithValue('Failed, Try again!');
   }
 });
 
-export const booksSlice = createSlice({
+const booksSlice = createSlice({
   name: 'books',
   initialState,
   extraReducers: (builder) => {
@@ -51,19 +51,33 @@ export const booksSlice = createSlice({
         ...state,
         isLoading: false,
       }))
+      .addCase(addBook.pending, (state) => ({
+        ...state,
+        isLoading: true,
+      }))
       .addCase(addBook.fulfilled, (state, action) => ({
         ...state,
         books: action.payload,
         isLoading: false,
       }))
-      .addCase(removeBook.fulfilled, (state, action) => {
-        const newBookList = state.books.filter((book) => book.item_id !== action.payload);
-        return {
-          ...state,
-          books: newBookList,
-          isLoading: true,
-        };
-      });
+      .addCase(addBook.rejected, (state) => ({
+        ...state,
+        isLoading: false,
+      }))
+      .addCase(removeBook.pending, (state) => ({
+        ...state,
+        isLoading: false,
+      }))
+      .addCase(removeBook.fulfilled, (state, action) => ({
+        ...state,
+        books: state.books.filter((book) => book.id !== action.payload),
+      }))
+      .addCase(removeBook.rejected, (state) => ({
+        ...state,
+        isLoading: false,
+      }));
   },
 });
+
+export { getBooks, addBook, removeBook };
 export default booksSlice.reducer;
