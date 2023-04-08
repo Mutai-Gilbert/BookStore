@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { removeBook, getBooks } from '../redux/books/booksSlice';
 import '../App.css';
-import AddNewBook from './AddNewBook';
+import AddNewBook from './addNewBook';
 
 const Books = () => {
   const { isLoading } = useSelector((state) => state.books);
