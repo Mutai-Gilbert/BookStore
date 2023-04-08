@@ -9,18 +9,21 @@ const AddNewBook = () => {
   const [newBook, setNewBook] = useState({ title: '', author: '', category: '' });
 
   const handleBookTitle = (e) => {
-    if (e.target.value.length) {
+    if (e.target.value) {
       setNewBook({ ...newBook, title: e.target.value });
     }
   };
   const handleBookAuthor = (e) => {
-    if (e.target.value.length) {
+    if (e.target.value) {
       setNewBook({ ...newBook, author: e.target.value });
     }
   };
   const handleBookSubmit = async () => {
     const bookInfo = {
-      item_id: uuidv4(), ...newBook,
+      item_id: uuidv4(),
+      title: newBook.title,
+      author: newBook.author,
+      category: 'Inspirational',
     };
     await dispatch(addBook(bookInfo));
     setNewBook({ title: '', author: '', category: '' });
@@ -48,6 +51,7 @@ const AddNewBook = () => {
         />
         <input
           type="submit"
+          value="ADD BOOK"
           onClick={(e) => {
             e.preventDefault();
             handleBookSubmit();
