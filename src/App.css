@@ -56,7 +56,6 @@ input[type="submit"]:hover {
   border: 1px solid #ddd;
   border-radius: 4px;
   margin-bottom: 10px;
-  
   padding: 11px;
   display: flex;
   justify-content: space-between;
