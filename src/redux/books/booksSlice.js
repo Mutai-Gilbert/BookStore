@@ -6,31 +6,22 @@ const initialState = {
   isLoading: false,
 };
 
-const getBooks = createAsyncThunk('books/getBooks', async (thunkAPI) => {
-  try {
-    const response = await axios.get('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/CmHBlH9icvMuSf2R7xNo/books');
-    return response.data;
-  } catch (error) {
-    return thunkAPI.rejectWithValue('Failed, Try again!');
-  }
+const getBooks = createAsyncThunk('books/getBooks', async () => {
+  const response = await axios.get('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/enAq4PLNmVjCpl0q9LzN/books');
+  return response.data;
 });
 
-const addBook = createAsyncThunk('books/addBook', async (bookInfo, thunkAPI) => {
-  try {
-    const response = await axios.post('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/CmHBlH9icvMuSf2R7xNo/books', bookInfo);
-    return response.data;
-  } catch (error) {
-    return thunkAPI.rejectWithValue('Failed, Try again!');
+const addBook = createAsyncThunk('books/addBook', async (bookInfo) => {
+  const response = await axios.post('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/enAq4PLNmVjCpl0q9LzN/books', bookInfo);
+  if (response.data && response.data === 'Created') {
+    return { ...bookInfo, id: bookInfo.item_id };
   }
+  return null;
 });
 
-const removeBook = createAsyncThunk('books/removeBook', async (bookId, thunkAPI) => {
-  try {
-    const response = await axios.delete(`https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/CmHBlH9icvMuSf2R7xNo/books/${bookId}`);
-    return response.data;
-  } catch (error) {
-    return thunkAPI.rejectWithValue('Failed, Try again!');
-  }
+const removeBook = createAsyncThunk('books/removeBook', async (bookId) => {
+  await axios.delete(`https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/enAq4PLNmVjCpl0q9LzN/books/${bookId}`);
+  return { bookId };
 });
 
 const booksSlice = createSlice({
@@ -68,10 +59,19 @@ const booksSlice = createSlice({
         ...state,
         isLoading: false,
       }))
-      .addCase(removeBook.fulfilled, (state, action) => ({
-        ...state,
-        books: state.books.filter((book) => book.id !== action.payload),
-      }))
+      .addCase(removeBook.fulfilled, (state, action) => {
+        const { unique } = action.payload;
+        if (!unique || !unique.id) {
+          return state;
+        }
+        const filteredBooks = state.books.filter((book) => book.id !== unique.id);
+
+        return {
+          ...state,
+          books: filteredBooks,
+        };
+      })
+
       .addCase(removeBook.rejected, (state) => ({
         ...state,
         isLoading: false,

@@ -18,12 +18,13 @@ const AddNewBook = () => {
       setNewBook({ ...newBook, author: e.target.value });
     }
   };
-  const handleBookSubmit = () => {
+  const handleBookSubmit = async () => {
     const bookInfo = {
       item_id: uuidv4(), ...newBook,
     };
-    dispatch(addBook(bookInfo));
-    document.querySelector('form').reset();
+    await dispatch(addBook(bookInfo));
+    setNewBook({ title: '', author: '', category: '' });
+    await dispatch(getBooks());
   };
 
   return (

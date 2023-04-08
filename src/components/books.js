@@ -25,33 +25,29 @@ const Books = () => {
 
   const displayBooks = () => {
     if (Object.keys(theBooks).length > 0) {
-      return (
-        <ul className="bookList">
-          {Object.keys(theBooks).map((id) => {
-            const [mybook] = theBooks[id];
-            const { author, title, category } = mybook;
-
-            return (
-              <li key={id} id={id} className="bookItem">
-                <div className="bookDetails">
-                  <span className="author">{author}</span>
-                  <span className="title">{title}</span>
-                  <span className="category">{category}</span>
-                </div>
-                <button
-                  type="submit"
-                  className="removeBookButton"
-                  onClick={() => {
-                    handleRemoveBook(id);
-                  }}
-                >
-                  Remove
-                </button>
-              </li>
-            );
-          })}
-        </ul>
-      );
+      return Object.keys(theBooks).map((id) => {
+        const mybook = theBooks[id][0];
+        if (!mybook) {
+          return null; // or handle the error in some other way
+        }
+        const { author, title, category } = mybook;
+        return (
+          <li key={id} id={id}>
+            <span className="author">{author}</span>
+            <span className="title">{title}</span>
+            <span className="category">{category}</span>
+            <button
+              type="submit"
+              className="removeBookButton"
+              onClick={() => {
+                handleRemoveBook(id);
+              }}
+            >
+              Remove
+            </button>
+          </li>
+        );
+      });
     }
     return <h1 className="noBooksMessage">No books yet</h1>;
   };
