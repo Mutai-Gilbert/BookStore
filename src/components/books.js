@@ -42,24 +42,27 @@ const Books = () => {
 
             return (
               <li key={id} id={id} className="book">
-                <div className="detail-actions">
-                  <div className="bookDetails">
-                    <span className="author">{author}</span>
-                    <span className="title">{title}</span>
-                    <span className="category">{category}</span>
+                <div className="design">
+                  <div className="detail-actions">
+                    <div className="bookDetails">
+                      <span className="author">{author}</span>
+                      <span className="title">{title}</span>
+                      <span className="category">{category}</span>
+                    </div>
+                  </div>
+                  <div className="actions">
+                    <button type="button" className="comment actionBtn">Comments</button>
+                    <button
+                      type="button"
+                      className="removeBook actionBtn"
+                      onClick={() => { handleRemoveBook(id); }}
+                    >
+                      Remove
+                    </button>
+                    <button type="button" className="actionBtn">Edit</button>
                   </div>
                 </div>
-                <div className="actions">
-                  <button type="button" className="comment actionBtn">Comments</button>
-                  <button
-                    type="button"
-                    className="removeBook actionBtn"
-                    onClick={() => { handleRemoveBook(id); }}
-                  >
-                    Remove
-                  </button>
-                  <button type="button" className="actionBtn">Edit</button>
-                </div>
+
                 <div className="percentage">
                   <CircularProgressbar
                     value={progress}
@@ -96,9 +99,11 @@ const Books = () => {
 
   return (
     <div className="booksContainer">
-      <ul>
-        {displayBooks()}
-      </ul>
+      <div>
+        <ul>
+          {displayBooks()}
+        </ul>
+      </div>
       <div className="newBook">
         <h3 className="addNewBook">ADD NEW BOOK</h3>
         <AddNewBook />

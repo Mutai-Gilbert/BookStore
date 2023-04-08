@@ -216,6 +216,7 @@ nav ul {
 
 .newBook {
   padding: 10px;
+  margin: 2em 2em;
 }
 
 .addNewBook {
@@ -255,7 +256,7 @@ input[type="submit"] {
   border-radius: 3px;
   margin: 0;
   text-align: center;
-  width: 11.5rem;
+  width: 20%;
   height: 2.5rem;
 }
 
