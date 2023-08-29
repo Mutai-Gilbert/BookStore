@@ -18,12 +18,19 @@ const AddNewBook = () => {
       setNewBook({ ...newBook, author: e.target.value });
     }
   };
+
+  const handleBookCategory = (e) => {
+    if (e.target.value) {
+      e.preventDefault();
+      setNewBook({ ...newBook, category: e.target.value });
+    }
+  };
   const handleBookSubmit = async () => {
     const bookInfo = {
       item_id: uuidv4(),
       title: newBook.title,
       author: newBook.author,
-      category: 'Inspirational',
+      category: newBook.category,
     };
     await dispatch(addBook(bookInfo));
     setNewBook({ title: '', author: '', category: '' });
@@ -32,7 +39,7 @@ const AddNewBook = () => {
 
   return (
     <>
-      <form>
+      <form onSubmit={handleBookSubmit}>
         <input
           type="text"
           placeholder="Book title..."
@@ -50,14 +57,14 @@ const AddNewBook = () => {
           required
         />
         <input
-          type="submit"
-          value="ADD BOOK"
-          onClick={(e) => {
-            e.preventDefault();
-            handleBookSubmit();
-            dispatch(getBooks());
-          }}
+          type="text"
+          placeholder="Book Category..."
+          name="Category"
+          value={newBook.category}
+          onChange={handleBookCategory}
+          required
         />
+        <button type="submit"> ADD BOOK</button>
       </form>
     </>
   );
