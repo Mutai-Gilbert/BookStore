@@ -5,7 +5,7 @@ import Books from './components/books';
 import Categories from './components/categories';
 
 const App = () => (
-  <div className="container">
+  <div>
     <Navbar />
     <Routes>
       <Route path="/" element={<Books />} />

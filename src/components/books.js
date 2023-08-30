@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
@@ -6,15 +7,15 @@ import { removeBook, getBooks } from '../redux/books/booksSlice';
 import '../App.css';
 import AddNewBook from './addNewBook';
 
-const Books = () => {
+const Books = ({ book }) => {
   const { isLoading } = useSelector((state) => state.books);
   const theBooks = useSelector((state) => state.books.books);
   const [progress, setProgress] = useState(50);
 
   const dispatch = useDispatch();
 
-  const handleRemoveBook = (id) => {
-    dispatch(removeBook(id));
+  const handleRemoveBook = () => {
+    dispatch(removeBook(book.id));
   };
   useEffect(() => {
     dispatch(getBooks());
@@ -35,7 +36,7 @@ const Books = () => {
   const displayBooks = () => {
     if (Object.keys(theBooks).length > 0) {
       return (
-        <ul className="bookList">
+        <ul>
           {Object.keys(theBooks).map((id) => {
             const [mybook] = theBooks[id];
             const { author, title, category } = mybook;
@@ -99,7 +100,7 @@ const Books = () => {
 
   return (
     <div className="booksContainer">
-      <div>
+      <div className="bookList">
         <ul>
           {displayBooks()}
         </ul>
@@ -110,6 +111,15 @@ const Books = () => {
       </div>
     </div>
   );
+};
+
+Books.propTypes = {
+  book: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    author: PropTypes.string.isRequired,
+    category: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default Books;

@@ -9,21 +9,14 @@ const AddNewBook = () => {
   const [newBook, setNewBook] = useState({ title: '', author: '', category: '' });
 
   const handleBookTitle = (e) => {
-    if (e.target.value) {
-      setNewBook({ ...newBook, title: e.target.value });
-    }
+    setNewBook({ ...newBook, title: e.target.value });
   };
   const handleBookAuthor = (e) => {
-    if (e.target.value) {
-      setNewBook({ ...newBook, author: e.target.value });
-    }
+    setNewBook({ ...newBook, author: e.target.value });
   };
 
   const handleBookCategory = (e) => {
-    if (e.target.value) {
-      e.preventDefault();
-      setNewBook({ ...newBook, category: e.target.value });
-    }
+    setNewBook({ ...newBook, category: e.target.value });
   };
   const handleBookSubmit = async () => {
     const bookInfo = {
@@ -32,9 +25,9 @@ const AddNewBook = () => {
       author: newBook.author,
       category: newBook.category,
     };
-    await dispatch(addBook(bookInfo));
+    dispatch(addBook(bookInfo));
     setNewBook({ title: '', author: '', category: '' });
-    await dispatch(getBooks());
+    dispatch(getBooks());
   };
 
   return (
@@ -64,7 +57,7 @@ const AddNewBook = () => {
           onChange={handleBookCategory}
           required
         />
-        <button type="submit"> ADD BOOK</button>
+        <button type="submit" className="updateProgress"> ADD BOOK</button>
       </form>
     </>
   );
