@@ -60,11 +60,11 @@ const booksSlice = createSlice({
         isLoading: false,
       }))
       .addCase(removeBook.fulfilled, (state, action) => {
-        const { unique } = action.payload;
-        if (!unique || !unique.id) {
+        const { bookId } = action.payload;
+        if (!bookId || !bookId.id) {
           return state;
         }
-        const filteredBooks = state.books.filter((book) => book.id !== unique.id);
+        const filteredBooks = state.books.filter((book) => book.id !== bookId.id);
 
         return {
           ...state,
