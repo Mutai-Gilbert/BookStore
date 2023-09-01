@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
-import { removeBook } from '../redux/books/booksSlice';
+import { removeBook, getBooks } from '../redux/books/booksSlice';
 import '../App.css';
 import AddNewBook from './addNewBook';
 
@@ -17,6 +17,9 @@ const Books = ({ book }) => {
   const handleRemoveBook = () => {
     dispatch(removeBook(book.id));
   };
+  useEffect(() => {
+    dispatch(getBooks());
+  }, [dispatch]);
 
   if (isLoading) {
     return (
@@ -34,7 +37,7 @@ const Books = ({ book }) => {
     if (Object.keys(theBooks).length > 0) {
       return (
         <ul>
-          {Object.values(theBooks).map((id) => {
+          {Object.keys(theBooks).map((id) => {
             const [mybook] = theBooks[id];
             const { author, title, category } = mybook;
 
